@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <script src="https://kit.fontawesome.com/af45a58227.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <div class="left">
+                <div class="hamburger-image">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <div class="home-image">
+                    <i class="fa-solid fa-house"></i>
+                </div>
+                <div class="search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search" class="search-input">
+                </div>
+            </div>
+            <div class="right">
+                <div class="user"><i class="fa-solid fa-user"></i></div>
+            </div>
+        </div>
+        <div class="projects">
+            <h2 class="task-list-title">Projects</h2>
+            <ul class="task-list" data-lists>
+            </ul>
+            <form action="" class="new-list-form" data-new-list-form>
+                <input type="text" class="new list" data-new-list-input placeholder="new list name"
+                    aria-label="new list name" />
+                <button class="btn create" aria-label="create new list">+</button>
+            </form>
+        </div>
+
+        <div class="content" data-list-display-container>
+            <div class="todo-header">
+                <h2 class="list-title" data-list-title></h2>
+                <p class="task-count" data-list-count></p>
+            </div>
+
+            <div class="todo-body">
+                <div class="tasks" data-tasks>
+                </div>
+
+                <div class="new-task-creator">
+                    <button id="show-popup">Add Task</button>
+                    <div class="popup">
+                        <span class="close-btn" id="close-popup">&times;</span>
+                        <h2>Pop-up Form</h2>
+                        <form id="item-form">
+                            <input type="text" id="task-title" name="task-title" placeholder="Title" required><br><br>
+
+                            <textarea name="task-description" id="task-description"
+                                placeholder="Description"></textarea>
+
+                            <label for="date">Date</label>
+                            <input type="date" name="task-date" id="task-date">
+
+                            <label for="task-priority-selection">Priority:</label>
+                            <select name="task-priority-selection" id="task-priority-selection">
+                                <option value="High" selected>High Priority</option>
+                                <option value="Medium">Medium Priority</option>
+                                <option value="Low">Low Priority</option>
+                            </select>
+
+                            <label for="task-notes">Notes:</label>
+                            <textarea name="task-notes" id="task-notes" placeholder="Notes"></textarea>
+
+                            <button class="task-btn" type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="delete-stuff">
+                    <button class="btn delete" data-clear-complete-tasks-button>Clear completed tasks</button>
+                    <button class="btn delete" data-delete-list-button>Delete list</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <template id="task-template">
+        <div class="task">
+            <div class="task-details">
+                <input type="checkbox" />
+                <label><span class="custom-checkbox"></span></label>
+                <p class="task-description editable" contenteditable="false"></p>
+                <h4 class="task-date editable" contenteditable="false"></h4>
+                <p class="task-priority editable" contenteditable="false"></p>
+                <p class="task-notes editable" contenteditable="false"></p>
+            </div>
+            <div class="task-buttons">
+                <button class="edit-task-button active" id="editButton">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <button class="delete-task-button">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+            </div>
+        </div>
+    </template>
+
+
+    <script src="main.js"></script>
+</body>
+
+</html>
